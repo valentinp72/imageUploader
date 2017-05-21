@@ -1,6 +1,18 @@
-<?php include('member.php'); include('header.php');
+<?php
 
-echo "bonjour !!<a href='logout.php'>Click here to logout</a>";
+	$title = "Admin";
+	$page  = "index";
 
+	require('member.php');
+	require('header.php');
 
-include('footer.php'); ?>
+?>
+
+<label class="control-label">Select File</label>
+<input id="input-1" type="file" class="file">
+
+<?php
+
+	require('footer.php');
+
+?>

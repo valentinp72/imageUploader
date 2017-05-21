@@ -1,7 +1,8 @@
-<?php session_start();
+<?php
+	session_start();
 
-if(!isset($_SESSION['login']) or !isset($_SESSION['password'])){
-  header('location: auth.php');
-}
+	if(!isset($_SESSION['login'])){
+		header('location: auth.php');
+	}
 
 ?>
