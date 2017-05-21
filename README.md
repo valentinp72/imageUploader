@@ -1,2 +1,2 @@
-# fileUploader
-PHP file uploader
+# imageUploader
+PHP image uploader
