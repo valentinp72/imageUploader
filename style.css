@@ -2,8 +2,9 @@ body, html {
 	margin: 0px;
 }
 img {
-	width: 100%;
+	max-width: 100%;
 	height: auto;
+	max-height: 100vh;
 }
 .align-horizontal {
 	height: 100vh;

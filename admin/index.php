@@ -62,7 +62,7 @@
 		if(!$moved)
 			error("Error while moving the image.");
 
-		header("Location: /" . $uniqueName);
+		header("Location: list.php?i=" . $uniqueName);
 	}
 	else {
 

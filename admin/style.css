@@ -2,6 +2,13 @@ body {
 	padding-top: 70px;
 }
 
+.preview-image {
+	max-width: 300px;
+	height: auto;
+	max-height: 300px;
+	margin-bottom: 20px;
+}
+
 .upload-file {
 	background-color: #2ecc71;
 	border-color: #28b162;
