@@ -1,0 +1,18 @@
+body, html {
+	margin: 0px;
+}
+img {
+	width: 100%;
+	height: auto;
+}
+.align-horizontal {
+	height: 100vh;
+	display: flex;
+    justify-content: center;
+}
+
+.align-vertical {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
