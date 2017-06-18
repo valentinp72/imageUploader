@@ -18,8 +18,8 @@
 		echo "<html>\n";
 		echo "\t<head>\n";
 		echo "\t\t<title>" . $image['basename'] . "</title>\n\n";
-		echo "\t\t<link rel='icon' type='". $type ."' href='" . $title . "' />\n";
-		echo "\t\t<link rel='stylesheet' href='style.css' />\n";
+		echo "\t\t<link rel='icon' type='". $type ."' href='/" . $title . "' />\n";
+		echo "\t\t<link rel='stylesheet' href='/style.css' />\n";
 		write_twitter_card($title);
 		echo "\n\t</head>\n";
 		echo "\t<body>\n\t\t";
@@ -32,7 +32,7 @@
 		<meta name="twitter:creator" content="@valentinp72">
 		<meta name="twitter:title" content="Image">
 		<meta name="twitter:description" content="@valentinp72 image">
-		<meta name="twitter:image" content="/<?php echo $title; ?>">
+		<meta name="twitter:image" content="https://i.vlntn.pw/<?php echo $title; ?>">
 
 		<?php
 	}
@@ -67,13 +67,25 @@
 		if(!empty($data)){
 			// the file exists
 
-			write_header($data);
-			echo "\n\t\t<div class='align-horizontal'>\n";
-			echo "\t\t\t<div class='align-vertical'>\n";
-			echo "\t\t\t\t<img src='/". $data . "' alt='Image de @valentinp72' />\n";
-			echo "\t\t\t</div>\n";
-			echo "\t\t</div>\n";
-			write_footer();
+
+			if(strpos($_SERVER['HTTP_USER_AGENT'], "Twitterbot") === 0){
+				// it's twitter!
+
+				write_header($data);
+				echo "\n\t\t<div class='align-horizontal'>\n";
+				echo "\t\t\t<div class='align-vertical'>\n";
+				echo "\t\t\t\t<img src='/". $data . "' alt='Image de @valentinp72' />\n";
+				echo "\t\t\t</div>\n";
+				echo "\t\t</div>\n";
+				write_footer();
+
+			}
+			else {
+				$size = getimagesize($data);
+				header('Content-type: ' . $size['mime']);
+				readfile($data);
+
+			}
 
 		}
 		else {
