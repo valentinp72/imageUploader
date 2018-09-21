@@ -12,7 +12,7 @@
 		if(!empty($_GET['i'])){
 			$requestFile = $_GET['i'];
 
-			if(ctype_alnum($requestFile) && strlen($requestFile) == 5){
+			if(ctype_alnum($requestFile) && strlen($requestFile) >= 5){
 				// check if the file exists
 				$data = exec("ls ../i/" . $requestFile . ".* | head -1", $output, $return);
 

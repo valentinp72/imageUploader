@@ -55,7 +55,7 @@
 		die("<h2>Nothing here...</h2>");
 	}
 	// Prevent form requesting non-valid file : only alphanumeric names
-	else if(!ctype_alnum($requestFile) || strlen($requestFile) != 5){
+	else if(!ctype_alnum($requestFile) || strlen($requestFile) < 5 || strlen($requestFile) > 15){
 		return404();
 	}
 	// Correct image request

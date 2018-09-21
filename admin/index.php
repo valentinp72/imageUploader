@@ -1,7 +1,7 @@
 <?php
 
-	$MAX_SIZE  = 52428800; // 50 Mo
-	$VALID_EXT = ['jpg', 'jpeg', 'png', 'gif', 'psd', 'svg', 'bmp', 'psd'];
+	$MAX_SIZE  = 524288000; // 500 Mo
+	$VALID_EXT = ['jpg', 'jpeg', 'png', 'gif', 'psd', 'svg', 'bmp', 'psd', 'zip', 'tar.gz'];
 
 
 	function error($msg){
@@ -48,7 +48,7 @@
 			error("Transfer error.");
 
 		if($_FILES['upload-file']['error'] > $MAX_SIZE)
-			error("Image too heavy (50 Mo max.)");
+			error("Image too heavy (500 Mo max.)");
 
 		$fileInfo = pathinfo($_FILES['upload-file']['name']);
 
@@ -78,7 +78,7 @@
 	<div class="form-group">
 		<div class="btn btn-lg upload-file">
 			<span>Upload</span>
-			<input type="file" name="upload-file" accept="image/*" class="upload" onchange="form.submit()" />
+			<input type="file" name="upload-file" accept="image/*,application/zip" class="upload" onchange="form.submit()" />
 		</div>
 	</div>
 
